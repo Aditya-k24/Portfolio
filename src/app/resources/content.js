@@ -1,50 +1,43 @@
 import { InlineCode } from "@/once-ui/components";
 
 const person = {
-  firstName: "Selene",
-  lastName: "Yu",
+  firstName: "Aditya",
+  lastName: "Kulkarni",
   get name() {
     return `${this.firstName} ${this.lastName}`;
   },
-  role: "Design Engineer",
+  role: "Software Developer and AI Enthusiast",
   avatar: "/images/avatar.jpg",
-  location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-  languages: ["English", "Bahasa"], // optional: Leave the array empty if you don't want to display languages
+  location: "America/New_York", 
+  languages: ["English", "Hindi", "Kannada", "Marathi", "Gujarati"], // optional: Leave the array empty if you don't want to display languages
 };
 
 const newsletter = {
-  display: true,
+  display: false,
   title: <>Subscribe to {person.firstName}'s Newsletter</>,
   description: (
     <>
-      I occasionally write about design, technology, and share thoughts on the intersection of
-      creativity and engineering.
+      I occasionally write about artificial intelligence, software engineering, and share insights
+      on innovative tech projects.
     </>
   ),
 };
 
 const social = [
-  // Links are automatically displayed.
-  // Import new icons in /once-ui/icons.ts
   {
     name: "GitHub",
     icon: "github",
-    link: "https://github.com/once-ui-system/nextjs-starter",
+    link: "https://github.com/Aditya-k24",
   },
   {
     name: "LinkedIn",
     icon: "linkedin",
-    link: "https://www.linkedin.com/company/once-ui/",
-  },
-  {
-    name: "X",
-    icon: "x",
-    link: "",
+    link: "https://www.linkedin.com/in/aditya-kulkarni-355b81217/",
   },
   {
     name: "Email",
     icon: "email",
-    link: "mailto:example@gmail.com",
+    link: "mailto:adityakulkarni244@gmail.com",
   },
 ];
 
@@ -52,11 +45,13 @@ const home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Design engineer and builder</>,
+  headline: <>Software Developer and AI Enthusiast</>,
   subline: (
     <>
-      I'm Selene, a design engineer at <InlineCode>FLY</InlineCode>, where I craft intuitive
-      <br /> user experiences. After hours, I build my own projects.
+      I'm Aditya, a Master's student at North Carolina State University, passionate about solving 
+      real-world challenges through software development and AI/ML. After hours, I enjoy pursuing 
+      my hobbies and socializing with friends, striking a balance between work and play.
+
     </>
   ),
 };
@@ -73,60 +68,80 @@ const about = {
     display: true,
   },
   calendar: {
-    display: true,
-    link: "https://cal.com",
+    display: false, // Assuming you don't need a calendar link, change to true and update link if needed
   },
   intro: {
     display: true,
     title: "Introduction",
     description: (
       <>
-        Selene is a Jakarta-based design engineer with a passion for transforming complex challenges
-        into simple, elegant design solutions. Her work spans digital interfaces, interactive
-        experiences, and the convergence of design and technology.
+        Aditya is a passionate and enthusiastic problem solver based in North Carolina. With hands-on 
+        experience across multiple domains, Aditya has found his true calling in software development, 
+        data analysis, and AI/ML. Driven by curiosity and a love for learning, he constantly seeks 
+        innovative solutions to real-world challenges.
       </>
     ),
   },
   work: {
-    display: true, // set to false to hide this section
+    display: true,
     title: "Work Experience",
     experiences: [
       {
-        company: "FLY",
-        timeframe: "2022 - Present",
-        role: "Senior Design Engineer",
-        achievements: [
+        "company": "Mphasis (HP Subsidiary)",
+        "timeframe": "Jun 2024 – Aug 2024",
+        "role": "SDE Intern",
+        "achievements": [
           <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
-            engagement and 30% faster load times.
+            Designed and implemented a health insurance claiming model using OCR, NLP, and ML for eligibility assessment and refund calculation.
           </>,
           <>
-            Spearheaded the integration of AI tools into design workflows, enabling designers to
-            iterate 50% faster.
+            Enhanced expertise in Generative AI by integrating advanced algorithms for document automation and text understanding.
           </>,
+          <>
+            Was part of the first team at the company dedicated to AI, where we developed and solved case studies that the company could later scale and develop further.
+          </>
         ],
-        images: [
-          // optional: leave the array empty if you don't want to display images
+        "images": [
           {
-            src: "/images/projects/project-01/cover-01.jpg",
-            alt: "Once UI Project",
-            width: 16,
-            height: 9,
-          },
-        ],
+            "src": "/images/experience/company1.jpg",
+            "alt": "Company 1",
+            "width": 16,
+            "height": 9
+          }
+        ]
       },
       {
-        company: "Creativ3",
-        timeframe: "2018 - 2022",
-        role: "Lead Designer",
-        achievements: [
+        "company": "Capgemini",
+        "timeframe": "Jun 2023 – Aug 2023",
+        "role": "Data Analytics Intern",
+        "achievements": [
           <>
-            Developed a design system that unified the brand across multiple platforms, improving
-            design consistency by 40%.
+            Deployed a machine learning solution for ticket data automation, reducing processing time by 15%.
           </>,
           <>
-            Led a cross-functional team to launch a new product line, contributing to a 15% increase
-            in overall company revenue.
+            Developed a user-friendly jQuery interface while maintaining data confidentiality.
+          </>,
+          <>
+            I was responsible for interacting with international clients to deploy the product onto their systems, ensuring smooth integration and addressing their needs.          </>
+        ],
+        "images": [
+          {
+            "src": "/images/experience/company2.jpeg",
+            "alt": "Description of the image",
+            "width": 16,
+            "height": 9
+          }
+        ]
+      },
+      {
+        company: "Digital Ipsum",
+        timeframe: "Apr 2022 – Jun 2022",
+        role: "SDE Intern",
+        achievements: [
+          <>Developed the company website for a start-up using the MERN stack with an intuitive, responsive UI.</>,
+          <>
+            Improved accessibility across 10+ device types, enhancing user experience
+            significantly.
           </>,
         ],
         images: [],
@@ -134,62 +149,74 @@ const about = {
     ],
   },
   studies: {
-    display: true, // set to false to hide this section
+    display: true,
     title: "Studies",
     institutions: [
       {
-        name: "University of Jakarta",
-        description: <>Studied software engineering.</>,
+        name: "North Carolina State University",
+        description: (
+          <>
+            - <b>Master's in Computer Science</b> (Aug 2024 – Present).  <br/>
+            - Focus areas: <b>AI</b>, <b>Operating Systems</b>, <b>Automation and Data Analysis</b>, <b>Data Structures and Algorithms</b>, and <b>Software Engineering</b>.  <br/>
+          </>
+        ),
       },
       {
-        name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
+        name: "Dwarkadas J. Sanghvi College Of Engineering",
+        description: (
+          <>
+            - <b>Bachelor of Technology in Computer Science</b>; <b>CGPA: 9.32</b> (Oct 2020 – Jul 2024).  <br/>
+            - Published <b>two research papers</b> in <b>IEEE</b> and <b>Springer</b>.  <br/>
+            - Key coursework: <b>AI and ML</b>, <b>Big Data</b>, and <b>Data Structures</b>.  
+          </>
+        ),
       },
     ],
   },
   technical: {
-    display: true, // set to false to hide this section
+    display: true,
     title: "Technical skills",
     skills: [
       {
-        title: "Figma",
-        description: <>Able to prototype in Figma with Once UI with unnatural speed.</>,
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-02.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-          {
-            src: "/images/projects/project-01/cover-03.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-        ],
+        title: "AI and Machine Learning",
+        description: (
+          <>
+            - Proficient in <b>TensorFlow</b>, <b>Scikit-learn</b>, and <b>OpenAI API</b>.  <br/>
+            - Developed AI solutions for NLP, generative AI, and document processing.   <br/>
+            - Key projects include health monitoring apps and OCR-based systems.  
+          </>
+        ),
       },
       {
-        title: "Next.js",
-        description: <>Building next gen apps with Next.js + Once UI + Supabase.</>,
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-04.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-        ],
+        title: "Full-Stack Development",
+        description: (
+          <>
+            - Skilled in <b>MERN stack</b> and <b>Spring Framework</b> for web applications.   <br/>
+            - Expertise in responsive UI design and user experience using <b>Figma</b>.   <br/>
+            - Built scalable websites and dashboards with seamless interfaces.  
+          </>
+        ),
+      },
+      {
+        title: "Systems Programming",
+        description: (
+          <>
+            - Strong knowledge of OS concepts like memory management and process scheduling.   <br/>
+            - Implemented projects like <b>Demand Paging in Xinu</b> with advanced memory allocation.   <br/>
+            - Experienced in x86 assembly and debugging with <b>GDB</b>.  
+          </>
+        ),
       },
     ],
+    
+    
   },
 };
 
+
 const blog = {
-  label: "Blog",
-  title: "Writing about design and tech...",
+  label: "Projects",
+  title: "Unlocking innovation...",
   description: `Read what ${person.name} has been up to recently`,
   // Create new blog posts by adding a new .mdx file to app/blog/posts
   // All posts will be listed on the /blog route
@@ -210,72 +237,69 @@ const gallery = {
   // Images from https://pexels.com
   images: [
     {
-      src: "/images/gallery/img-01.jpg",
+      src: "/images/gallery/team_capgemini.jpeg",
+      alt: "image",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/gallery/be_proj.png",
       alt: "image",
       orientation: "vertical",
     },
     {
-      src: "/images/gallery/img-02.jpg",
+      src: "/images/gallery/competition.jpg",
       alt: "image",
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/img-03.jpg",
+      src: "/images/gallery/nc_state.jpeg",
+      alt: "image",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/gallery/user_needs.png",
+      alt: "image",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/projects/project-01/gdsce.png",
+      alt: "image",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/gallery/work.jpg",
       alt: "image",
       orientation: "vertical",
     },
     {
-      src: "/images/gallery/img-04.jpg",
+      src: "/images/gallery/indo_american.jpg",
+      alt: "image",
+      orientation: "vertical",
+    },
+   
+    {
+      src: "/images/gallery/hackathon.jpg",
+      alt: "image",
+      orientation: "horizontal",
+    },
+    
+    {
+      src: "/images/gallery/fav.jpg",
       alt: "image",
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/img-05.jpg",
+      src: "/images/gallery/capgemini.jpg",
       alt: "image",
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/img-06.jpg",
+      src: "/images/gallery/music.png",
       alt: "image",
       orientation: "vertical",
     },
     {
-      src: "/images/gallery/img-07.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/img-08.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/img-09.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/img-10.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/img-11.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/img-12.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/img-13.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/img-14.jpg",
+      src: "/images/gallery/careerplusai.jpg",
       alt: "image",
       orientation: "horizontal",
     },
