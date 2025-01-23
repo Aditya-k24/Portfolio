@@ -109,8 +109,8 @@ export default function Home() {
           </Flex>
           <Flex flex={3} paddingX="20">
             <Posts range={[1, 2]} columns="2" />
-   =]
-   '       </Flex>
+
+          </Flex>
         </Flex>
       )}
       <Projects range={[2]} />
