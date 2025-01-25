@@ -1,4 +1,6 @@
 import { InlineCode } from "@/once-ui/components";
+import { Analytics } from "@vercel/analytics/react"
+
 
 const person = {
   firstName: "Aditya",
