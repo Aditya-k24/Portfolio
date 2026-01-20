@@ -7,7 +7,7 @@ const person = {
   get name() {
     return `${this.firstName} ${this.lastName}`;
   },
-  role: "Software Developer and AI Enthusiast",
+  role: "Graduate Research Assistant & Software Developer",
   avatar: "/images/avatar.jpg",
   location: "America/New_York", 
   languages: ["English", "Hindi", "Kannada", "Marathi", "Gujarati"], // optional: Leave the array empty if you don't want to display languages
@@ -38,7 +38,7 @@ const social = [
   {
     name: "Email",
     icon: "email",
-    link: "mailto:adityakulkarni244@gmail.com",
+    link: "mailto:adityakulkarnius@gmail.com",
   },
 ];
 
@@ -46,12 +46,13 @@ const home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Software Developer and AI Enthusiast</>,
+  headline: <>Graduate Research Assistant & Software Developer</>,
   subline: (
     <>
-      I'm Aditya, a Master's student at North Carolina State University, passionate about solving 
-      real-world challenges through software development and AI/ML. After hours, I enjoy pursuing 
-      my hobbies and socializing with friends, striking a balance between work and play.
+      I'm Aditya, a Graduate Research Assistant at North Carolina State University, passionate about 
+      building AI-driven solutions and genomic data platforms. With experience in ML workflows, 
+      cloud deployments, and full-stack development, I'm dedicated to solving complex problems 
+      through innovative technology.
 
     </>
   ),
@@ -76,10 +77,11 @@ const about = {
     title: "Introduction",
     description: (
       <>
-        Aditya is a passionate and enthusiastic problem solver based in North Carolina. With hands-on 
-        experience across multiple domains, Aditya has found his true calling in software development, 
-        data analysis, and AI/ML. Driven by curiosity and a love for learning, he constantly seeks 
-        innovative solutions to real-world challenges.
+        Aditya is a Graduate Research Assistant at North Carolina State University, passionate about 
+        building AI-driven solutions and genomic data platforms. With extensive experience in ML workflows, 
+        cloud deployments, and full-stack development, he has successfully delivered projects that cut costs 
+        by 50% and improved processing times by up to 60%. Driven by innovation and technical excellence, 
+        he constantly seeks to solve complex problems through cutting-edge technology.
       </>
     ),
   },
@@ -88,24 +90,63 @@ const about = {
     title: "Work Experience",
     experiences: [
       {
-        "company": "Mphasis (HP Subsidiary)",
-        "timeframe": "Jun 2024 – Aug 2024",
-        "role": "SDE Intern",
+        "company": "NC State University",
+        "timeframe": "Apr 2025 – Present",
+        "role": "Graduate Research Assistant",
         "achievements": [
           <>
-            Designed and implemented a health insurance claiming model using OCR, NLP, and ML for eligibility assessment and refund calculation.
+            Designed a cloud-based genomic data platform with JBrowse 2, enabling interactive exploration of large-scale strawberry and grape datasets for over 10 researchers.
           </>,
           <>
-            Enhanced expertise in Generative AI by integrating advanced algorithms for document automation and text understanding.
+            Collaborated on ML architecture design, applying hyperparameter tuning and time-series analysis, improving model accuracy by 12%.
           </>,
-          <>
-            Was part of the first team at the company dedicated to AI, where we developed and solved case studies that the company could later scale and develop further.
-          </>
         ],
         "images": [
           {
             "src": "/images/experience/company1.jpg",
-            "alt": "Company 1",
+            "alt": "NC State University",
+            "width": 16,
+            "height": 9
+          }
+        ]
+      },
+      {
+        "company": "9Root AI",
+        "timeframe": "May 2025 – Jan 2026",
+        "role": "Product Engineer Intern",
+        "achievements": [
+          <>
+            Orchestrated end-to-end AI workflows with Temporal to automate intake, enrichment, and resolution for top U.S. insurers, cutting costs by 50% and claim-cycle time by 60% across three high-volume lines.
+          </>,
+          <>
+            Deployed ML workflows with CI/CD pipelines, and containerized services on Docker + Kubernetes, improving release speed by 40%.
+          </>,
+        ],
+        "images": [
+          {
+            "src": "/images/experience/company2.jpeg",
+            "alt": "9Root AI",
+            "width": 16,
+            "height": 9
+          }
+        ]
+      },
+      {
+        "company": "Mphasis (HP Company)",
+        "timeframe": "Jun 2024 – Aug 2024",
+        "role": "Software Developer Intern",
+        "achievements": [
+          <>
+            Built 5+ AI-driven workflows including a health claim automation tool using OCR, NLP, and ML; improved claim accuracy by 25%.
+          </>,
+          <>
+            Automated deployments on AWS & GCP, integrated monitoring dashboards with Grafana, and supported model validation/red-teaming to enhance reliability.
+          </>,
+        ],
+        "images": [
+          {
+            "src": "/images/experience/company1.jpg",
+            "alt": "Mphasis",
             "width": 16,
             "height": 9
           }
@@ -114,35 +155,32 @@ const about = {
       {
         "company": "Capgemini",
         "timeframe": "Jun 2023 – Aug 2023",
-        "role": "Data Analytics Intern",
+        "role": "AI/ML Intern",
         "achievements": [
           <>
-            Deployed a machine learning solution for ticket data automation, reducing processing time by 15%.
+            Led end-to-end SDLC for an ML-based solution automating support ticket analysis, reducing processing time by 15%.
           </>,
           <>
-            Developed a user-friendly jQuery interface while maintaining data confidentiality.
+            Built ML pipelines with Hadoop + Spark and integrated Kafka streaming, reducing ticket-processing latency by 20% for real-time support workflows.
           </>,
-          <>
-            I was responsible for interacting with international clients to deploy the product onto their systems, ensuring smooth integration and addressing their needs.          </>
         ],
         "images": [
           {
             "src": "/images/experience/company2.jpeg",
-            "alt": "Description of the image",
+            "alt": "Capgemini",
             "width": 16,
             "height": 9
           }
         ]
       },
       {
-        company: "Digital Ipsum",
-        timeframe: "Apr 2022 – Jun 2022",
-        role: "SDE Intern",
+        company: "Digital Ipsum and Vidyarthi Mitra",
+        timeframe: "Apr 2022 – Sept 2022",
+        role: "Software Developer Intern",
         achievements: [
-          <>Developed the company website for a start-up using the MERN stack with an intuitive, responsive UI.</>,
+          <>Overhauled website using the MERN stack and mobile-first design, improving load speeds by 30% and usability on 12+ device types.</>,
           <>
-            Improved accessibility across 10+ device types, enhancing user experience
-            significantly.
+            Launched a React+Node.js site via Vercel for a Microsoft-funded NGO; served 500+ users, boosting engagement by 40% in 3 months.
           </>,
         ],
         images: [],
@@ -157,18 +195,17 @@ const about = {
         name: "North Carolina State University",
         description: (
           <>
-            - <b>Master's in Computer Science</b> (Aug 2024 – Present).  <br/>
-            - Focus areas: <b>AI</b>, <b>Operating Systems</b>, <b>Automation and Data Analysis</b>, <b>Data Structures and Algorithms</b>, and <b>Software Engineering</b>.  <br/>
+            - <b>Master of Science in Computer Science</b> (Aug 2024 – May 2026).  <br/>
+            - Courses: <b>Artificial Intelligence</b>, <b>Operating Systems</b>, <b>Data Science</b>, <b>Object Oriented Development</b>, <b>Software Engineering</b>, <b>Algorithms</b>.  <br/>
           </>
         ),
       },
       {
-        name: "Dwarkadas J. Sanghvi College Of Engineering",
+        name: "Mumbai University",
         description: (
           <>
-            - <b>Bachelor of Technology in Computer Science</b>; <b>CGPA: 9.32</b> (Oct 2020 – Jul 2024).  <br/>
-            - Published <b>two research papers</b> in <b>IEEE</b> and <b>Springer</b>.  <br/>
-            - Key coursework: <b>AI and ML</b>, <b>Big Data</b>, and <b>Data Structures</b>.  
+            - <b>Bachelor of Technology in Computer Science</b>; <b>CGPA: 9.32/10</b> (Oct 2020 – Jul 2024).  <br/>
+            - Courses: <b>Data Warehousing</b>, <b>Big Data Infra</b>, <b>DS & Algorithm</b>, <b>OS</b>, <b>Machine Learning</b>, <b>Software Engineering</b>, <b>Blockchain</b>.  <br/>
           </>
         ),
       },
@@ -179,12 +216,12 @@ const about = {
     title: "Technical skills",
     skills: [
       {
-        title: "AI and Machine Learning",
+        title: "AI/ML & Data Science",
         description: (
           <>
-            - Proficient in <b>TensorFlow</b>, <b>Scikit-learn</b>, and <b>OpenAI API</b>.  <br/>
-            - Developed AI solutions for NLP, generative AI, and document processing.   <br/>
-            - Key projects include health monitoring apps and OCR-based systems.  
+            - Proficient in <b>GPT-4</b>, <b>Claude</b>, <b>Gemini</b>, <b>OpenAI API</b>, <b>LangChain</b>, <b>MCP</b>, <b>Hugging Face</b>.  <br/>
+            - Expertise in <b>TensorFlow</b>, <b>PyTorch</b>, <b>Scikit-learn</b>, <b>Pandas</b>, <b>NumPy</b> for ML model development.   <br/>
+            - Experience with <b>Vector DB</b>, <b>Prompt Engineering</b>, and <b>Distributed Systems</b>.  
           </>
         ),
       },
@@ -192,19 +229,19 @@ const about = {
         title: "Full-Stack Development",
         description: (
           <>
-            - Skilled in <b>MERN stack</b> and <b>Spring Framework</b> for web applications.   <br/>
-            - Expertise in responsive UI design and user experience using <b>Figma</b>.   <br/>
-            - Built scalable websites and dashboards with seamless interfaces.  
+            - Skilled in <b>MERN stack</b>, <b>Node.js</b>, <b>Express.js</b>, <b>React</b>, <b>Tailwind</b>.   <br/>
+            - Database expertise: <b>MongoDB</b>, <b>MySQL</b>, <b>SQL</b>.   <br/>
+            - Languages: <b>Python</b>, <b>TypeScript</b>, <b>Java</b>, <b>JavaScript</b>, <b>R</b>, <b>C</b>, <b>HTML/CSS</b>, <b>Ruby</b>.  
           </>
         ),
       },
       {
-        title: "Systems Programming",
+        title: "Systems & DevOps",
         description: (
           <>
-            - Strong knowledge of OS concepts like memory management and process scheduling.   <br/>
-            - Implemented projects like <b>Demand Paging in Xinu</b> with advanced memory allocation.   <br/>
-            - Experienced in x86 assembly and debugging with <b>GDB</b>.  
+            - Strong knowledge of <b>Temporal</b>, <b>Fly.io</b>, <b>Docker</b>, <b>Kubernetes</b>.   <br/>
+            - Experience with <b>CI/CD pipelines</b>, <b>Git</b>, <b>Agile</b> methodologies.   <br/>
+            - Cloud platforms: <b>AWS</b>, <b>GCP</b> with monitoring tools like <b>Grafana</b>.  
           </>
         ),
       },
@@ -307,4 +344,29 @@ const gallery = {
   ],
 };
 
-export { person, social, newsletter, home, about, blog, work, gallery };
+const additionalExperience = {
+  display: true,
+  title: "Additional Experience and Awards",
+  experiences: [
+    {
+      title: "Google Developer Student Club Leadership",
+      description: (
+        <>
+          <b>Lead at Google Developers Student Club:</b> Led 4+ tech events (hackathons, conferences) reaching 500+ students.  <br/>
+          Organized workshops and events focused on spreading awareness about the latest technologies, providing hands-on experiences to participants and fostering a community passionate about innovation and growth.
+        </>
+      ),
+    },
+    {
+      title: "Hackathon Achievements",
+      description: (
+        <>
+          <b>Winner of National Hackathons:</b> Won or ranked in Top 10 in 6+ national hackathons, developing 3 complete MVPs within 48-hour builds, showcasing rapid prototyping and collaboration.  <br/>
+          Demonstrated ability to deliver high-quality solutions under time pressure while collaborating effectively with diverse teams.
+        </>
+      ),
+    },
+  ],
+};
+
+export { person, social, newsletter, home, about, blog, work, gallery, additionalExperience };

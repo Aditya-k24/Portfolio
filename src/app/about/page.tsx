@@ -13,7 +13,7 @@ import {
 import { baseURL } from "@/app/resources";
 import TableOfContents from "@/components/about/TableOfContents";
 import styles from "@/components/about/about.module.scss";
-import { person, about, social } from "@/app/resources/content";
+import { person, about, social, additionalExperience } from "@/app/resources/content";
 
 export async function generateMetadata() {
   const title = about.title;
@@ -65,6 +65,11 @@ export default function About() {
       title: about.technical.title,
       display: about.technical.display,
       items: about.technical.skills.map((skill) => skill.title),
+    },
+    {
+      title: additionalExperience.title,
+      display: additionalExperience.display,
+      items: additionalExperience.experiences.map((experience) => experience.title),
     },
   ];
   return (
@@ -313,6 +318,29 @@ export default function About() {
                         ))}
                       </Flex>
                     )}
+                  </Column>
+                ))}
+              </Column>
+            </>
+          )}
+
+          {additionalExperience.display && (
+            <>
+              <Heading
+                as="h2"
+                id={additionalExperience.title}
+                variant="display-strong-s"
+                marginBottom="40"
+              >
+                {additionalExperience.title}
+              </Heading>
+              <Column fillWidth gap="l">
+                {additionalExperience.experiences.map((experience, index) => (
+                  <Column key={`${experience.title}-${index}`} fillWidth gap="4">
+                    <Text variant="heading-strong-l">{experience.title}</Text>
+                    <Text variant="body-default-m" onBackground="neutral-weak">
+                      {experience.description}
+                    </Text>
                   </Column>
                 ))}
               </Column>
