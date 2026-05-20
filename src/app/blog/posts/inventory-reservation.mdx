@@ -1,0 +1,63 @@
+---
+title: "Inventory Reservation Service: Preventing Overselling with PostgreSQL Row-Level Locking"
+publishedAt: "2026-02-10"
+summary: "Transactional inventory reservation API in Java 21 + Spring Boot — PostgreSQL SELECT FOR UPDATE, idempotent endpoints, RFC 9457 errors, concurrency verified with Testcontainers."
+tag: "Project"
+---
+
+# Inventory Reservation Service
+
+A production-grade transactional inventory reservation API that prevents overselling using PostgreSQL row-level locking across multi-SKU reservations.
+
+**GitHub:** [github.com/Aditya-k24/InventoryReservationService](https://github.com/Aditya-k24/InventoryReservationService)
+
+---
+
+## The Problem
+
+E-commerce and marketplace systems routinely oversell inventory when concurrent requests hit the same SKU. Naive stock checks followed by updates create race conditions — two threads both see stock = 1, both decrement, both succeed, actual stock = -1.
+
+---
+
+## Solution
+
+**PostgreSQL row-level locking with `SELECT FOR UPDATE`** — locks the inventory row at the DB level for the duration of the transaction, so only one reservation can proceed at a time per SKU. Multi-SKU reservations are handled atomically.
+
+---
+
+## Key Design Decisions
+
+### Idempotent Endpoints
+POST endpoints accept a client-generated idempotency key. Duplicate requests within the TTL window return the original response — safe to retry without double-reserving.
+
+### RFC 9457 Error Responses
+All error responses follow the RFC 9457 Problem Details standard — machine-readable, consistent error format with `type`, `title`, `status`, `detail`, and `instance` fields.
+
+### Automated Expiry
+A scheduled cleanup job releases reservations that were never confirmed into orders — prevents orphaned locks from exhausting stock indefinitely.
+
+### Security
+Spring Security with role-based access control. Reservation creation, confirmation, and cancellation each require specific roles.
+
+---
+
+## Concurrency Verification
+
+Testcontainers integration test: two concurrent HTTP requests against a SKU with `quantity = 1`. Expected outcome — exactly one 200 OK and one 409 Conflict. This proves the locking actually works, not just under normal conditions.
+
+```
+Concurrent request A → 200 OK (reserved)
+Concurrent request B → 409 Conflict (stock exhausted)
+```
+
+---
+
+## CI/CD
+
+Flyway database migrations, multi-stage Docker build, GitHub Actions CI running the full Testcontainers integration test suite on every push.
+
+---
+
+## Stack
+
+Java 21 · Spring Boot 3.5 · PostgreSQL · Flyway · Spring Data JPA · Spring Security · Testcontainers · Docker · GitHub Actions

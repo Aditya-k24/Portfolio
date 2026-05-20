@@ -1,0 +1,64 @@
+---
+title: "LLM Eval Harness: Benchmarking Claude, GPT-4o, and Gemini"
+publishedAt: "2025-06-10"
+summary: "Vendor-neutral LLM benchmark — 2,000-example frozen test set, grounded hallucination rate, p50/p95 latency, cost/call — with paired bootstrap significance testing across Claude Sonnet 4.6, GPT-4o, and Gemini 2.5 Pro."
+tag: "Project"
+---
+
+# LLM Eval Harness – Systematic Model Benchmarking
+
+Most engineers can *use* LLMs. Almost none can systematically *measure* them. This project builds that measurement infrastructure.
+
+**GitHub:** [github.com/Aditya-k24/llm-eval-harness](https://github.com/Aditya-k24/llm-eval-harness)
+
+---
+
+## The Problem
+
+Without a rigorous eval harness, model selection is guesswork. Provider dashboards don't give cross-vendor comparisons with statistical significance. You can't detect regressions across versions or quantify hallucination risk under controlled conditions.
+
+---
+
+## Design
+
+### Vendor-Neutral Adapter Protocol
+Each model (Claude Sonnet 4.6, GPT-4o, Gemini 2.5 Pro) has its own adapter behind a common `ModelAdapter` interface — no shared abstractions that obscure billing semantics or rate-limit signals. Structured JSON outputs enforced at the schema level to eliminate parser noise.
+
+### Frozen Test Set
+- **2,000 examples**: 700 grounded QA, 500 multi-hop (HotpotQA), 400 FEVER claim verification, 400 synthetic enterprise-style
+- Dataset manifest hash pinned — no data leakage, fully reproducible
+- 3 repeated runs per model, temperature 0, pinned model IDs
+
+---
+
+## Metrics
+
+| Category | Metrics |
+|----------|---------|
+| Accuracy | ExactMatch, TokenF1, AbstentionAccuracy, EvidenceQuoteValidity |
+| Hallucination | Grounded ResponseHallucinationRate + human annotation with IAA |
+| Latency | p50/p95 E2E and API round-trip (ms), TTFT for streaming |
+| Cost | Per-call estimate + reconciled against provider billing APIs |
+| Reliability | JSONValidity (schema pass rate per model) |
+
+---
+
+## Statistical Rigor
+
+- Paired bootstrap 95% CIs on all pairwise comparisons
+- McNemar test on pairwise correctness
+- Holm correction across comparisons (family-wise error control)
+
+---
+
+## Infrastructure
+
+- JSONL raw logs → Parquet normalized tables → DuckDB for analytics
+- Streamlit dashboard: accuracy vs cost scatter, p50/p95 latency bars, hallucination heatmap, per-example failure explorer
+- Docker container for full reproducibility
+
+---
+
+## Stack
+
+Python · Anthropic SDK · OpenAI SDK · Google GenAI SDK · DuckDB · Parquet · Streamlit · Docker

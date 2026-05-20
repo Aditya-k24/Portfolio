@@ -1,0 +1,63 @@
+---
+title: "Glance AI: Privacy-First RAG for Fintech & Healthcare"
+publishedAt: "2025-08-01"
+summary: "Compliance-ready RAG system with per-tenant data isolation at the vector retrieval layer — prevents cross-tenant context leakage and LLM hallucinations in regulated fintech and healthcare environments."
+tag: "Project"
+---
+
+# Glance AI – Privacy-First RAG System
+
+A compliance-ready Retrieval-Augmented Generation system built for regulated industries where data isolation isn't optional.
+
+**GitHub:** [github.com/Aditya-k24/GlanceAI](https://github.com/Aditya-k24/GlanceAI)
+
+---
+
+## The Problem
+
+Standard RAG systems retrieve context from a shared vector store — which means tenant A's documents can accidentally surface in tenant B's responses. In fintech and healthcare, that's a compliance violation. Traditional approaches add post-retrieval filters, which are fragile and auditable only after the fact.
+
+---
+
+## The Solution: Retrieval-Layer Isolation
+
+Per-tenant data isolation is enforced **at the vector retrieval layer** — before anything reaches the LLM. Each retrieval query is scoped to its tenant boundary; cross-tenant documents are physically unreachable, not just filtered.
+
+---
+
+## Architecture
+
+### Tenant-Scoped Retrieval
+- Each tenant's documents are stored in isolated vector namespaces
+- Query routing enforces tenant boundary before similarity search
+- No shared retrieval context between tenants by design
+
+### Deterministic Output Architecture
+- Retrieval constraints are deterministic — same query, same tenant = same candidate set
+- Reduces hallucination risk by limiting the LLM's context to verified, in-scope documents
+- Factual correctness validated against source documents
+
+---
+
+## Why This Matters
+
+| Standard RAG | Glance AI |
+|-------------|-----------|
+| Shared vector store, filter post-retrieval | Isolated namespaces, filter at retrieval |
+| Cross-tenant leakage possible under failure | Cross-tenant leakage impossible by design |
+| Hallucination from out-of-scope context | Deterministic retrieval bounds LLM context |
+| Hard to audit | Tenant boundary enforced at infra level |
+
+---
+
+## Use Cases
+
+- Financial document Q&A with client data isolation
+- Healthcare record retrieval with HIPAA-aligned access controls
+- Enterprise multi-tenant knowledge bases
+
+---
+
+## Stack
+
+Python · LLMs · Vector Databases · RAG

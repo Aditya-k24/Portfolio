@@ -1,0 +1,61 @@
+---
+title: "VectorLift: Production-Grade Semantic Search & Ranking Engine"
+publishedAt: "2026-01-15"
+summary: "Built a full semantic search pipeline on MS MARCO — BM25 baseline, dense bi-encoder retrieval, cross-encoder re-ranking — with Kafka-driven indexing, FastAPI serving, and statistical significance testing across 6 pipeline configurations."
+tag: "Project"
+---
+
+# VectorLift – Semantic Search & Ranking Engine
+
+A production-grade semantic search system on MS MARCO, evaluating six retrieval pipeline configurations end-to-end with rigorous statistical comparison.
+
+**GitHub:** [github.com/Aditya-k24/VectorLift](https://github.com/Aditya-k24/VectorLift)
+
+---
+
+## The Problem
+
+Most search implementations pick BM25 or dense retrieval without measuring the quality-latency trade-off of each stage. This system builds the full pipeline — sparse, dense, re-ranking — and evaluates every configuration under controlled conditions.
+
+---
+
+## Three-Stage Retrieval Pipeline
+
+**Stage 1 — BM25 Baseline (Elasticsearch)**
+Sparse retrieval to establish the keyword-matching upper bound. Fast, interpretable, competitive on lexical matches.
+
+**Stage 2 — Dense Bi-Encoder (Sentence-Transformers)**
+Fine-tuned on MS MARCO with in-batch negatives. Embeddings stored in Qdrant vector store + FAISS index for sub-linear ANN search.
+
+**Stage 3 — Cross-Encoder Re-Ranker (MiniLM)**
+Full query-passage interaction scoring for precision re-ranking of top-k candidates. Per-stage latency tracked independently.
+
+---
+
+## Kafka-Driven Indexing Pipeline
+
+Event-based corpus ingestion into both Elasticsearch and Qdrant vector store — decoupled from the serving path so index updates don't block queries. Docker Compose orchestrates the full multi-service stack locally.
+
+---
+
+## Evaluation
+
+6 pipeline configurations evaluated against MS MARCO dev set:
+- sparse-only, dense-only, sparse+rerank, dense+rerank, hybrid, hybrid+rerank
+
+Metrics: **NDCG@10, MRR@10, MAP**  
+Statistics: **Paired bootstrap significance testing** — confirms which improvements are signal, not noise.
+
+Streamlit dashboard visualizes experiment comparisons and significance test outputs.
+
+---
+
+## Serving
+
+FastAPI search endpoint with per-stage latency headers. Prometheus + Grafana for pipeline observability.
+
+---
+
+## Stack
+
+Python · PyTorch · Sentence-Transformers · Elasticsearch · FAISS · Qdrant · Kafka · FastAPI · Streamlit · PostgreSQL · Redis · Prometheus · Grafana · Docker Compose

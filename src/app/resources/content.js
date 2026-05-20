@@ -7,9 +7,9 @@ const person = {
   get name() {
     return `${this.firstName} ${this.lastName}`;
   },
-  role: "Graduate Research Assistant & Software Developer",
+  role: "Graduate Research Assistant & Product Engineer",
   avatar: "/images/avatar.jpg",
-  location: "America/New_York", 
+  location: "America/New_York",
   languages: ["English", "Hindi", "Kannada", "Marathi", "Gujarati"], // optional: Leave the array empty if you don't want to display languages
 };
 
@@ -46,14 +46,12 @@ const home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Graduate Research Assistant & Software Developer</>,
+  headline: <>Graduate Research Assistant & Product Engineer</>,
   subline: (
     <>
-      I'm Aditya, a Graduate Research Assistant at North Carolina State University, passionate about 
-      building AI-driven solutions and genomic data platforms. With experience in ML workflows, 
-      cloud deployments, and full-stack development, I'm dedicated to solving complex problems 
-      through innovative technology.
-
+      I'm Aditya, a Graduate Research Assistant at NC State and Product Engineer Intern at Isomer AI,
+      building production AI systems — multi-model LLM pipelines, Temporal.io orchestration, and
+      cloud-native platforms across 3 LLM providers.
     </>
   ),
 };
@@ -77,11 +75,12 @@ const about = {
     title: "Introduction",
     description: (
       <>
-        Aditya is a Graduate Research Assistant at North Carolina State University, passionate about 
-        building AI-driven solutions and genomic data platforms. With extensive experience in ML workflows, 
-        cloud deployments, and full-stack development, he has successfully delivered projects that cut costs 
-        by 50% and improved processing times by up to 60%. Driven by innovation and technical excellence, 
-        he constantly seeks to solve complex problems through cutting-edge technology.
+        Aditya is a Graduate Research Assistant at NC State and Product Engineer Intern at Isomer AI,
+        building Temporal.io workflow orchestration, multi-model AI agent tooling (Claude, GPT-4o, Gemini),
+        real-time event pipelines, and document processing systems in production. He also maintains a
+        cloud-based genomic data platform serving 100+ researchers worldwide on Google Cloud Run.
+        Driven by building systems that work at scale, he brings production AI engineering, distributed
+        systems, and full-stack depth to every project.
       </>
     ),
   },
@@ -95,7 +94,7 @@ const about = {
         "role": "Graduate Research Assistant",
         "achievements": [
           <>
-            Designed a cloud-based genomic data platform with JBrowse 2, enabling interactive exploration of large-scale strawberry and grape datasets for over 10 researchers.
+            Designed a cloud-based genomic data platform with JBrowse 2, enabling interactive exploration of strawberry and grape datasets (500GB) for 100+ researchers worldwide, deployed on Google Cloud Run.
           </>,
           <>
             Collaborated on ML architecture design, applying hyperparameter tuning and time-series analysis, improving model accuracy by 12%.
@@ -103,7 +102,7 @@ const about = {
         ],
         "images": [
           {
-            "src": "/images/experience/company1.jpg",
+            "src": "/images/experience/nc_state.jpeg",
             "alt": "NC State University",
             "width": 16,
             "height": 9
@@ -111,25 +110,25 @@ const about = {
         ]
       },
       {
-        "company": "9Root AI",
-        "timeframe": "May 2025 – Jan 2026",
+        "company": "Isomer AI",
+        "timeframe": "May 2025 – Present",
         "role": "Product Engineer Intern",
         "achievements": [
           <>
-            Orchestrated end-to-end AI workflows with Temporal to automate intake, enrichment, and resolution for top U.S. insurers, cutting costs by 50% and claim-cycle time by 60% across three high-volume lines.
+            Developed 10+ backend features for an AI-powered claims automation platform — Temporal.io workflow orchestration, role-based access control, real-time event pipelines (Pusher), and document processing (PDF generation, Microsoft Graph API email parsing, S3).
           </>,
           <>
-            Deployed ML workflows with CI/CD pipelines, and containerized services on Docker + Kubernetes, improving release speed by 40%.
+            Integrated multi-model AI agent tooling across 3 providers and 8+ models (Anthropic Claude, OpenAI GPT-4o, Google Gemini) with MCP; stack: TypeScript, Node.js, Express, PostgreSQL, Redis, Prisma, Auth0, Docker, Terraform, Playwright, Sentry.
           </>,
         ],
         "images": [
           {
-            "src": "/images/experience/company2.jpeg",
-            "alt": "9Root AI",
+            "src": "/images/experience/isomer.png",
+            "alt": "Isomer AI",
             "width": 16,
             "height": 9
           }
-        ]
+        ],
       },
       {
         "company": "Mphasis (HP Company)",
@@ -145,7 +144,7 @@ const about = {
         ],
         "images": [
           {
-            "src": "/images/experience/company1.jpg",
+            "src": "/images/experience/mphasis.jpg",
             "alt": "Mphasis",
             "width": 16,
             "height": 9
@@ -166,7 +165,7 @@ const about = {
         ],
         "images": [
           {
-            "src": "/images/experience/company2.jpeg",
+            "src": "/images/experience/capgemini.jpeg",
             "alt": "Capgemini",
             "width": 16,
             "height": 9
@@ -219,9 +218,9 @@ const about = {
         title: "AI/ML & Data Science",
         description: (
           <>
-            - Proficient in <b>GPT-4</b>, <b>Claude</b>, <b>Gemini</b>, <b>OpenAI API</b>, <b>LangChain</b>, <b>MCP</b>, <b>Hugging Face</b>.  <br/>
-            - Expertise in <b>TensorFlow</b>, <b>PyTorch</b>, <b>Scikit-learn</b>, <b>Pandas</b>, <b>NumPy</b> for ML model development.   <br/>
-            - Experience with <b>Vector DB</b>, <b>Prompt Engineering</b>, and <b>Distributed Systems</b>.  
+            - Multi-model LLM integration: <b>Claude</b>, <b>GPT-4o</b>, <b>Gemini</b>, <b>OpenAI API</b>, <b>LangChain</b>, <b>MCP</b>, <b>Hugging Face</b>.  <br/>
+            - Expertise in <b>TensorFlow</b>, <b>PyTorch</b>, <b>Scikit-learn</b>, <b>Pandas</b>, <b>NumPy</b>, <b>Sentence-Transformers</b>.  <br/>
+            - RAG systems, <b>Vector DBs</b> (Qdrant, FAISS), <b>Elasticsearch</b>, prompt engineering, LLM evaluation.
           </>
         ),
       },
@@ -229,9 +228,9 @@ const about = {
         title: "Full-Stack Development",
         description: (
           <>
-            - Skilled in <b>MERN stack</b>, <b>Node.js</b>, <b>Express.js</b>, <b>React</b>, <b>Tailwind</b>.   <br/>
-            - Database expertise: <b>MongoDB</b>, <b>MySQL</b>, <b>SQL</b>.   <br/>
-            - Languages: <b>Python</b>, <b>TypeScript</b>, <b>Java</b>, <b>JavaScript</b>, <b>R</b>, <b>C</b>, <b>HTML/CSS</b>, <b>Ruby</b>.  
+            - Skilled in <b>MERN stack</b>, <b>Node.js</b>, <b>NestJS</b>, <b>Express.js</b>, <b>React</b>, <b>Next.js</b>, <b>Tailwind</b>.  <br/>
+            - Database expertise: <b>PostgreSQL</b>, <b>MongoDB</b>, <b>MySQL</b>, <b>Redis</b>, <b>Prisma</b>, <b>DuckDB</b>.  <br/>
+            - Languages: <b>Python</b>, <b>TypeScript</b>, <b>Java</b>, <b>JavaScript</b>, <b>R</b>, <b>C</b>, <b>HTML/CSS</b>, <b>Ruby</b>.
           </>
         ),
       },
@@ -239,9 +238,9 @@ const about = {
         title: "Systems & DevOps",
         description: (
           <>
-            - Strong knowledge of <b>Temporal</b>, <b>Fly.io</b>, <b>Docker</b>, <b>Kubernetes</b>.   <br/>
-            - Experience with <b>CI/CD pipelines</b>, <b>Git</b>, <b>Agile</b> methodologies.   <br/>
-            - Cloud platforms: <b>AWS</b>, <b>GCP</b> with monitoring tools like <b>Grafana</b>.  
+            - Event-driven architecture: <b>Temporal.io</b>, <b>Kafka</b>, <b>Server-Sent Events</b>.  <br/>
+            - Cloud & containers: <b>AWS</b>, <b>GCP</b> (Cloud Run), <b>Docker</b>, <b>Kubernetes</b>, <b>Terraform</b>.  <br/>
+            - Observability: <b>Prometheus</b>, <b>Grafana</b>, <b>OpenTelemetry</b>, <b>Sentry</b>; CI/CD with <b>GitHub Actions</b>.
           </>
         ),
       },

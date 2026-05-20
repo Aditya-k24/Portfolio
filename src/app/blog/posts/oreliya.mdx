@@ -1,0 +1,74 @@
+---
+title: "Oreliya: Full-Stack Jewelry E-Commerce Platform"
+publishedAt: "2025-07-01"
+image: "/images/personal_projects/oreliya/banner.png"
+summary: "Built a production-grade jewelry e-commerce monorepo — TypeScript, React, Node.js, PostgreSQL, Prisma, Stripe — with admin dashboard, RBAC, product variants, and 17/17 automated API tests passing."
+tag: "Project"
+---
+
+# Oreliya – Full-Stack Jewelry E-Commerce Platform
+
+A production-grade, scalable jewelry e-commerce application built as a TypeScript monorepo with full admin capabilities, Stripe payments, and comprehensive automated testing.
+
+**GitHub:** [github.com/Aditya-k24/oreliya_webpage](https://github.com/Aditya-k24/oreliya_webpage)
+
+---
+
+## Architecture
+
+Monorepo with three workspaces:
+- **`apps/web-next`** — Next.js frontend with product browsing, cart, wishlist, checkout
+- **`apps/api`** — Node.js + Express backend with full REST API
+- **`packages/ui`** — Shared component library
+
+---
+
+## Core Features
+
+### Shopping Experience
+- Product catalog with variants (size, material, SKU), customizations (engraving, color), and sale pricing
+- Cart, wishlist, address management, and order tracking
+- Advanced search and filtering — category, tags, price range, sale status, stock availability, pagination
+- Real-time inventory validation on checkout
+
+### Authentication & Security
+- JWT-based auth with access + refresh token rotation
+- Role-based access control (RBAC) — `requireUser` / `requireAdmin` middleware
+- bcrypt password hashing, Helmet security headers, CORS
+
+### Admin Dashboard
+- Analytics: daily sales (7-day), top products by quantity, low inventory alerts
+- Deals management: percentage/fixed discounts, usage limits, date ranges
+- Product customization presets and role management
+- Full CRUD across all entities
+
+### Payments
+- Stripe integration with webhook handling and signature validation
+
+---
+
+## Tech Stack
+
+**Frontend:** Next.js, React 18, TypeScript, Vite, React Router  
+**Backend:** Node.js 20, Express.js, TypeScript, Prisma ORM  
+**Database:** PostgreSQL 16  
+**Payments:** Stripe  
+**Auth:** JWT, bcrypt  
+**DevOps:** Docker, Docker Compose, pnpm monorepo  
+**Quality:** ESLint (Airbnb + TS), Prettier, Husky, commitlint, lint-staged
+
+---
+
+## Testing
+
+17/17 automated API tests passing — authentication, product CRUD, cart, wishlist, orders, admin endpoints, Stripe webhook validation.
+
+```
+Total Tests: 17 | Passed: 17 | Failed: 0 | Success Rate: 100%
+```
+
+---
+
+## API Design
+
+RESTful API with consistent error responses (custom error classes, global handler), Winston structured logging, async wrapper middleware, and health check endpoint monitoring database connectivity and memory usage.

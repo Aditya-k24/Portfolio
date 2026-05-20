@@ -1,0 +1,64 @@
+---
+title: "PulseRank: Event-Driven Real-Time Leaderboard & Activity Feed"
+publishedAt: "2026-03-01"
+summary: "Multi-store leaderboard and activity feed — MySQL for transactional writes, MongoDB for feed projections, Redis sorted sets for sub-millisecond reads, Server-Sent Events for live updates, OpenTelemetry observability."
+tag: "Project"
+---
+
+# PulseRank – Real-Time Leaderboard & Activity Feed
+
+An event-driven platform for real-time leaderboard reads and activity feed projections, using each database for what it does best.
+
+**GitHub:** [github.com/Aditya-k24/PulseRank](https://github.com/Aditya-k24/PulseRank)
+
+---
+
+## Architecture
+
+Three specialized data stores, each chosen for its access pattern:
+
+| Store | Role | Why |
+|-------|------|-----|
+| MySQL | Transactional event writes | ACID guarantees, idempotency keys, outbox pattern |
+| MongoDB | Activity feed documents | Flexible schema, TTL expiry, document projections |
+| Redis sorted sets | Leaderboard reads | Sub-millisecond `ZREVRANGE`, O(log N) updates |
+
+---
+
+## Data Flow
+
+1. Client sends score event → MySQL writes it with idempotency key (deduplication)
+2. Outbox pattern: MySQL commits event + outbox record atomically
+3. Outbox poller reads committed events → updates Redis sorted set + writes MongoDB feed document
+4. Live score changes stream to connected clients via **Server-Sent Events**
+
+---
+
+## Key Features
+
+### Idempotency via Outbox Pattern
+Every score event carries a client-generated idempotency key. MySQL stores it; duplicate events return the original response. The outbox ensures exactly-once delivery to downstream stores even under retries.
+
+### TTL-Based Feed Expiry
+MongoDB feed documents carry a TTL index — old activity automatically expires without manual cleanup jobs.
+
+### Sub-Millisecond Leaderboard
+Redis `ZREVRANGE` + `ZSCORE` for rank queries. Leaderboard reads never touch MySQL or MongoDB.
+
+### Server-Sent Events
+Live score updates pushed to subscribed clients without polling. Automatic reconnection handled on the client side.
+
+---
+
+## Observability & Testing
+
+- **Testcontainers** integration tests validate multi-store consistency (event written to MySQL → appears in Redis + MongoDB)
+- **k6** load testing on hot paths (leaderboard reads, score ingestion)
+- **OpenTelemetry + Prometheus** for distributed tracing and metrics
+- **GitHub Actions** CI on every push
+
+---
+
+## Stack
+
+TypeScript · NestJS · Next.js · MySQL · MongoDB · Redis · Docker · GitHub Actions · OpenTelemetry · Prometheus

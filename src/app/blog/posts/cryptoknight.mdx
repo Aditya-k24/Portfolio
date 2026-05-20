@@ -1,0 +1,60 @@
+---
+title: "CryptoKnight: Trustless AI Trading Agent with ERC-4337"
+publishedAt: "2025-11-01"
+summary: "Solved the Delegation Dilemma in autonomous finance — ERC-4337 Account Abstraction lets an AI agent trade Polymarket prediction markets with on-chain session key policies, never holding the private key. Built at HackNC State 2025."
+tag: "Project"
+---
+
+# CryptoKnight – Trustless AI Trading Agent
+
+An autonomous AI trading agent that operates Polymarket prediction markets without ever holding private keys — built at HackNC State 2025.
+
+**GitHub:** [github.com/adityapai18/HackNCState26](https://github.com/adityapai18/HackNCState26)
+
+---
+
+## The Delegation Dilemma
+
+To let an AI trade on your behalf, you currently have to give it your private key. One bug, one model hallucination, one compromised endpoint — all funds gone. This is the fundamental problem in autonomous AI finance.
+
+---
+
+## The Solution: ERC-4337 Account Abstraction + Session Keys
+
+Instead of giving the agent a private key, we issue it a **Session Key** — a scoped, time-limited credential bound to strict on-chain policies:
+
+| Policy | Enforced On-Chain |
+|--------|------------------|
+| Max trade count | Yes |
+| Max allowance per trade | Yes |
+| Expiration timestamp | Yes |
+| Instant revocation | Yes |
+
+**Analogy:** A pre-loaded arcade card (Session Key) vs. your Platinum credit card (Private Key). The agent can play the games; it can't withdraw from your bank account.
+
+---
+
+## How It Works
+
+1. User creates a **smart account vault** (ERC-4337) — funds stay here, never exposed
+2. User issues a **Session Key** to the Python trading agent with policy bounds
+3. Agent monitors Polymarket, executes trades via `UserOperation` (not raw transactions)
+4. Each trade is validated against on-chain policies before execution
+5. User can revoke the Session Key instantly at any time
+
+The agent is **100% autonomous** — it makes its own trading decisions — but can **never exceed its cryptographically enforced mandate**.
+
+---
+
+## Architecture
+
+- **Smart Account:** ERC-4337 self-custody vault (Alchemy Account Kit)
+- **Session Keys:** Scoped delegation with on-chain policy enforcement
+- **Python Agent:** Polymarket trading logic on Sepolia testnet
+- **Frontend:** Next.js 16 + viem + wagmi for wallet interaction and session key management
+
+---
+
+## Stack
+
+Alchemy Account Kit (ERC-4337) · Session Keys · Python agent · Sepolia testnet · Next.js 16 · viem · wagmi

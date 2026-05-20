@@ -1,0 +1,51 @@
+---
+title: "AlgoPulse: Event-Driven Agentic AI Orchestration Platform"
+publishedAt: "2025-09-01"
+summary: "Architected an event-driven AI orchestration platform — identified API-polling bottleneck under load, pivoted to Supabase Edge Functions streaming AI reasoning loops, scaled to 2,000 async inference requests/second with Temporal.io + Kafka."
+tag: "Project"
+---
+
+# AlgoPulse – Agentic AI Orchestration Platform
+
+An event-driven AI orchestration platform built for high-throughput async inference, with durable workflow state and zero message loss under load.
+
+**GitHub:** [github.com/Aditya-k24/AlgoPulse](https://github.com/Aditya-k24/AlgoPulse)
+
+---
+
+## The Problem
+
+Standard API polling creates a throughput bottleneck under heavy inference load. When multiple AI reasoning loops run concurrently, polling-based architectures saturate under back-pressure — requests queue up, latency spikes, and state gets lost on failures.
+
+---
+
+## The Architecture Pivot
+
+Identified the polling bottleneck under load and re-architected to a fully event-driven model:
+
+**Before:** Client polls → API checks status → returns partial result  
+**After:** Supabase Edge Functions stream AI reasoning loops directly to the client in real time
+
+This eliminated the polling overhead entirely and reduced time-to-first-token significantly.
+
+---
+
+## Distributed Worker Architecture
+
+**Temporal.io** manages durable workflow state — AI agent workflows survive crashes, retries, and network partitions. Each worker step is a durable activity; if it fails, Temporal replays from the last checkpoint.
+
+**Kafka** handles backend message brokering and worker coordination — decouples producers from consumers, provides durable queues, and enables horizontal scaling of worker pools.
+
+---
+
+## Results
+
+- **2,000 async inference requests/second** without dropping state
+- **Zero message loss** under load — Kafka durable queues + Temporal checkpointing
+- Fault-tolerant: worker crashes don't lose in-flight inference jobs
+
+---
+
+## Stack
+
+TypeScript · Node.js · React · Supabase Edge Functions · Temporal.io · Kafka
